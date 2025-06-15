@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
 def preprocess_data(**kwargs):
     ti = kwargs['ti']

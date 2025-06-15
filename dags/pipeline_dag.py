@@ -20,14 +20,12 @@ with DAG(
     
     load_data_task = PythonOperator(
         task_id='load_data',
-        python_callable=load_data,
-        provide_context=True
+        python_callable=load_data
     )
     
     preprocess_data_task = PythonOperator(
         task_id='preprocess_data',
-        python_callable=preprocess_data,
-        provide_context=True
+        python_callable=preprocess_data
     )
     
     load_data_task >> preprocess_data_task
