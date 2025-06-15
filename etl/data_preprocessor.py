@@ -16,7 +16,7 @@ def preprocess_data(**kwargs):
     X = scaler.fit_transform(X)
     
     print(X)
-    print("\n")
+    print('\n')
     print(y)
     
     ti.xcom_push(key='X', value=X.tolist())

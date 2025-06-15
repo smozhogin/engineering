@@ -10,7 +10,7 @@ def load_data():
     
     df.info()
     
-    print("\n")
+    print('\n')
     print(df.head(10))
     
     return df.to_json()
