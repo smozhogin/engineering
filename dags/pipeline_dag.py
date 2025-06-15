@@ -1,8 +1,8 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-from etl.data_loader import load_data
-from etl.data_preprocessor import preprocess_data
+from medic_pipeline.etl.data_loader import load_data
+from medic_pipeline.etl.data_preprocessor import preprocess_data
 
 default_args = {
     'owner': 'airflow',
@@ -15,7 +15,6 @@ default_args = {
 with DAG(
     'medic_pipeline',
     default_args=default_args,
-    schedule_interval=None,
     catchup=False
 ) as dag:    
     
