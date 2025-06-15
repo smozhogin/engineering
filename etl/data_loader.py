@@ -13,6 +13,6 @@ def load_data():
     print("\n")
     print(df.head(10))
     
-    return df
+    return df.to_json()
 
 load_data()

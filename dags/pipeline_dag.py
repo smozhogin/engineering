@@ -18,14 +18,16 @@ with DAG(
     catchup=False
 ) as dag:    
     
-    load_data = PythonOperator(
+    load_data_task = PythonOperator(
         task_id='load_data',
-        python_callable=load_data
+        python_callable=load_data,
+        provide_context=True
     )
     
-    preprocess_data = PythonOperator(
+    preprocess_data_task = PythonOperator(
         task_id='preprocess_data',
-        python_callable=preprocess_data
+        python_callable=preprocess_data,
+        provide_context=True
     )
     
-    load_data >> preprocess_data
+    load_data_task >> preprocess_data_task
