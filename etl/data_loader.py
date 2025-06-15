@@ -14,5 +14,3 @@ def load_data():
     print(df.head(10))
     
     return df.to_json()
-
-load_data()
