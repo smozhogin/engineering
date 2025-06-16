@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from medic_pipeline.etl.data_loader import load_data
 from medic_pipeline.etl.data_preprocessor import preprocess_data
 from medic_pipeline.etl.model_trainer import train_model
+from medic_pipeline.etl.model_evaluator import evaluate_model
 
 default_args = {
     'owner': 'airflow',
