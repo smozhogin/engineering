@@ -10,11 +10,13 @@ def train_model(**kwargs):
         X = np.array(X)
         y = np.array(y)
         
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
         
         model = LogisticRegression(random_state=42, max_iter=1000)
         model.fit(X_train, y_train)
         
         y_pred = model.predict(X_test)
         
-        return model, (X_train, X_test, y_train, y_test, y_pred)
+        ti.xcom_push(key='model', value=model)
+        ti.xcom_push(key='data_split', value=(X_train.tolist(), X_test.tolist(), y_train.tolist(), y_test.tolist()))
+        ti.xcom_push(key='predictions', value=y_pred.tolist())

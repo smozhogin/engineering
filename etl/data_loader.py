@@ -13,4 +13,4 @@ def load_data():
     print('\n')
     print(df.head(10))
     
-    return df.to_json()
+    ti.xcom_push(key='data', value=df.to_json())
