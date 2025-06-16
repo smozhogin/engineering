@@ -20,8 +20,6 @@ def train_model(**kwargs):
     model = LogisticRegression(random_state=42, max_iter=1000)
     model.fit(X_train, y_train)
     
-    y_pred = model.predict(X_test)
-    
     os.makedirs(model_dir, exist_ok=True)
     
     model_path = os.path.join(model_dir, model_file)
@@ -30,4 +28,3 @@ def train_model(**kwargs):
     
     ti.xcom_push(key='model_path', value=model_path)
     ti.xcom_push(key='data_split', value=(X_train.tolist(), X_test.tolist(), y_train.tolist(), y_test.tolist()))
-    ti.xcom_push(key='predictions', value=y_pred.tolist())

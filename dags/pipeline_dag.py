@@ -33,5 +33,10 @@ with DAG(
         task_id='train_model',
         python_callable=train_model
     )
+
+    evaluate_model_task = PythonOperator(
+        task_id='evaluate_model',
+        python_callable=evaluate_model
+    )
     
-    load_data_task >> preprocess_data_task >> train_model_task
+    load_data_task >> preprocess_data_task >> train_model_task >> evaluate_model_task
