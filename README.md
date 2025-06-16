@@ -46,7 +46,7 @@
 
         docker login
         docker pull smozhogin/engineering_image:1.0.X
-3. Создаем Docker-контейнер и заходим в интерактивном режиме
+3. Создаем Docker-контейнер и запускаем в интерактивном режиме
 
         docker run -it -e LC_ALL=ru_RU.UTF-8 --gpus all --name engineering --hostname engineering -p 8080:8080 engineering_image:1.0.X
 4. Активируем виртуальную среду
