@@ -2,11 +2,11 @@
 ## Архитектура проекта
 ### Расположение проекта в среде Linux Ubuntu 24.04
 
-app/
-├── project/
-│   └── medic_pipeline/
-└── venv/
-    └── medic/
+    app/
+    ├── project/
+    │   └── medic_pipeline/
+    └── venv/
+        └── medic/
 
 ## Запуск проекта из Docker контейнера
 1. Скачиваем из репозитория DockerHub образ Docker
