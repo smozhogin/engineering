@@ -2,7 +2,9 @@ import os
 import pandas as pd
 from sklearn.datasets import load_breast_cancer
 
-def load_data():
+def load_data(**kwargs):
+    ti = kwargs['ti']
+    
     data = load_breast_cancer()
     
     df = pd.DataFrame(data.data, columns=data.feature_names)

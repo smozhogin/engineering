@@ -3,6 +3,7 @@ from airflow.providers.standard.operators.python import PythonOperator
 from datetime import datetime, timedelta
 from medic_pipeline.etl.data_loader import load_data
 from medic_pipeline.etl.data_preprocessor import preprocess_data
+from medic_pipeline.etl.model_trainer import train_model
 
 default_args = {
     'owner': 'airflow',
@@ -27,5 +28,10 @@ with DAG(
         task_id='preprocess_data',
         python_callable=preprocess_data
     )
+
+    train_model_task = PythonOperator(
+        task_id='train_model',
+        python_callable=train_model
+    )
     
-    load_data_task >> preprocess_data_task
+    load_data_task >> preprocess_data_task >> train_model_task
