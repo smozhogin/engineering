@@ -5,8 +5,26 @@
     app/
     ├── project/
     │   └── medic_pipeline/
+    │       ├── dags/
+    │       │   └── pipeline_dag.py
+    │       ├── data/
+    │       │   └── logistic_regression_model.pkl
+    │       ├── etl/
+    │       │   ├── data_loader.py
+    │       │   ├── data_preprocessor.py
+    │       │   ├── model_evaluator.py
+    │       │   ├── model_trainer.py
+    │       │   └── results_keeper.py
+    │       ├── logs/
+    │       ├── README.md
+    │       └── results/
     └── venv/
         └── medic/
+            └── bin/
+                ├── activate
+                ├── pip
+                └── python
+### Шаги конвейера
 
 ## Запуск проекта из Docker-контейнера
 1. Скачиваем из репозитория DockerHub образ Docker
@@ -22,7 +40,8 @@
 5. Запускаем Apache Airflow
 
         airflow standalone
-6. В браузере на хостовой машине переходим по URL ***(Логин: admin, пароль: 123)***
+6. В браузере на хостовой машине переходим по URL
+   **Логин: admin, пароль: 123**
 
         http://localhost:8080/dags/Medic_Pipeline
-7. Запускаем DAG-файл на исполнение
+8. Запускаем DAG-файл на исполнение
