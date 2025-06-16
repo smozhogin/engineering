@@ -22,6 +22,8 @@ def train_model(**kwargs):
     
     y_pred = model.predict(X_test)
     
+    os.makedirs(model_dir, exist_ok=True)
+    
     model_path = os.path.join(model_dir, model_file)
     
     joblib.dump(model, model_path)
