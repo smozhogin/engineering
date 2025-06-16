@@ -8,7 +8,7 @@
     └── venv/
         └── medic/
 
-## Запуск проекта из Docker контейнера
+## Запуск проекта из Docker-контейнера
 1. Скачиваем из репозитория DockerHub образ Docker
 
         docker login
