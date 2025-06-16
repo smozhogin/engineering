@@ -22,7 +22,7 @@
 5. Запускаем Apache Airflow
 
         airflow standalone
-6. В браузере на хостовой машине переходим по URL
+6. В браузере на хостовой машине переходим по URL ***(Логин: admin, пароль: 123)***
 
         http://localhost:8080/dags/Medic_Pipeline
 7. Запускаем DAG-файл на исполнение
