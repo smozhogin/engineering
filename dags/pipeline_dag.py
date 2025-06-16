@@ -14,7 +14,7 @@ default_args = {
 }
 
 with DAG(
-    'medic_pipeline',
+    'Medic_Pipeline',
     default_args=default_args,
     catchup=False
 ) as dag:    
