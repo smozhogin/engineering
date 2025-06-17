@@ -5,6 +5,7 @@ from medic_pipeline.etl.data_loader import load_data
 from medic_pipeline.etl.data_preprocessor import preprocess_data
 from medic_pipeline.etl.model_trainer import train_model
 from medic_pipeline.etl.model_evaluator import evaluate_model
+from medic_pipeline.etl.results_keeper import keep_results
 
 default_args = {
     'owner': 'airflow',
@@ -40,4 +41,9 @@ with DAG(
         python_callable=evaluate_model
     )
     
-    load_data_task >> preprocess_data_task >> train_model_task >> evaluate_model_task
+    keep_results_task = PythonOperator(
+        task_id='keep_results',
+        python_callable=keep_results
+    )
+
+    load_data_task >> preprocess_data_task >> train_model_task >> evaluate_model_task >> keep_results_task
