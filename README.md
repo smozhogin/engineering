@@ -62,17 +62,18 @@
 
         docker login
         docker pull smozhogin/engineering_image:1.0.X
-3. Создаем Docker-контейнер и запускаем в интерактивном режиме
+2. Создаем Docker-контейнер и запускаем в интерактивном режиме
 
         docker run -it -e LC_ALL=ru_RU.UTF-8 --gpus all --name engineering --hostname engineering -p 8080:8080 engineering_image:1.0.X
-4. Активируем виртуальную среду
+        docker start -ai engineering # Для запуска существующего контейнера
+3. Активируем виртуальную среду
 
         source /app/venv/medic/bin/activate
-5. Запускаем Apache Airflow
+4. Запускаем Apache Airflow
 
         airflow standalone
-6. В браузере на хостовой машине переходим по URL  
+5. В браузере на хостовой машине переходим по URL  
    **Логин: admin, пароль: 123**
 
         http://localhost:8080/dags/Medic_Pipeline
-8. Запускаем DAG на исполнение
+6. Запускаем DAG на исполнение
