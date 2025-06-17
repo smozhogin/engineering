@@ -1,7 +1,9 @@
 import os
 import configparser
 import yadisk
+from medic_pipeline.logger import logger
 
+log = logger('results_keeper')
 config = configparser.ConfigParser()
 config.read('/app/project/medic_pipeline/config.ini')
 
@@ -17,6 +19,7 @@ local_metrics_file_path = os.path.join(LOCAL_DIR, METRICS_FILE)
 remote_metrics_file_path = os.path.join(REMOTE_DIR, METRICS_FILE)
 
 def keep_results():
+    log.info('Запуск шага 5 конвейера: сохранение результатов')
     client = yadisk.Client(token=OAUTH_TOKEN)
     
     with client:
@@ -31,4 +34,7 @@ def keep_results():
             
             print(f'Файлы успешно загружены на Яндекс.Диск по пути: {REMOTE_DIR}')
         except Exception as e:
+            log.error(f'При выполнении шага 5 конвейера: сохранение результатов произошла ошибка - {e}')
             print(f'Не удалось загрузить файлы: {e}')
+
+    log.info('Завершение шага 5 конвейера: сохранение результатов')
