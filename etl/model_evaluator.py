@@ -1,5 +1,9 @@
 import joblib
+import json
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+metrics_dir = '/app/project/medic_pipeline/data'
+metrics_file = 'metrics.json'
 
 def evaluate_model(**kwargs):
     ti = kwargs['ti']
@@ -18,4 +22,10 @@ def evaluate_model(**kwargs):
         'f1_score': f1_score(y_test, y_pred)
     }
     
-    ti.xcom_push(key='metrics', value=metrics)
+    metrics_json = json.dumps(metrics)
+    
+    os.makedirs(metrics_dir, exist_ok=True)
+    
+    metrics_path = os.path.join(metrics_dir, metrics_file)
+    
+    joblib.dump(metrics_json, metrics_path)

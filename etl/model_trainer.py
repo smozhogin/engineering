@@ -4,7 +4,7 @@ import joblib
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
-model_dir = 'data'
+model_dir = '/app/project/medic_pipeline/data'
 model_file = 'logistic_regression_model.pkl'
 
 def train_model(**kwargs):
