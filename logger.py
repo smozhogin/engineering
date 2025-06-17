@@ -1,5 +1,6 @@
 import os
 import logging
+from logging.handlers import RotatingFileHandler
 
 log_dir = '/app/project/medic_pipeline/logs'
 max_size_mb = 5
