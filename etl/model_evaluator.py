@@ -23,10 +23,9 @@ def evaluate_model(**kwargs):
         'f1_score': f1_score(y_test, y_pred)
     }
     
-    metrics_json = json.dumps(metrics)
-    
     os.makedirs(metrics_dir, exist_ok=True)
     
     metrics_path = os.path.join(metrics_dir, metrics_file)
     
-    joblib.dump(metrics_json, metrics_path)
+    with open(metrics_path, 'w') as f:
+        json.dump(metrics, f)
