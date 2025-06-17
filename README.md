@@ -90,10 +90,10 @@
 1. Скачиваем из репозитория DockerHub образ Docker
 
         docker login
-        docker pull smozhogin/engineering_image:1.0.X
+        docker pull smozhogin/engineering_image:1.0.3
 2. Создаем Docker-контейнер и запускаем в интерактивном режиме
 
-        docker run -it -e LC_ALL=ru_RU.UTF-8 --gpus all --name engineering --hostname engineering -p 8080:8080 engineering_image:1.0.X
+        docker run -it -e LC_ALL=ru_RU.UTF-8 --gpus all --name engineering --hostname engineering -p 8080:8080 engineering_image:1.0.3
         docker start -ai engineering # Для запуска существующего контейнера
 3. Активируем виртуальную среду
 
