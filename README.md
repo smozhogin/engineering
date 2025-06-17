@@ -34,7 +34,7 @@
 - Виртуальная среда Python: 3.10.18
 - Apache Airflow: 3.0.2
 
-Также см. в файле requirements.txt
+Также см. в файле requirements.txt.
 
 ### Шаги конвейера
 
