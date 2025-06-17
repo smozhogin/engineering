@@ -3,7 +3,7 @@ import joblib
 import json
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-metrics_dir = '/app/project/medic_pipeline/data'
+metrics_dir = '/app/project/medic_pipeline/results'
 metrics_file = 'metrics.json'
 
 def evaluate_model(**kwargs):
