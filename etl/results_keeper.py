@@ -6,7 +6,7 @@ config = configparser.ConfigParser()
 config.read('/app/project/medic_pipeline/config.ini')
 
 OAUTH_TOKEN = config['KEEPER'].get('OAUTH_TOKEN')
-LOCAL_DIR = '/app/project/medic_pipeline/data'
+LOCAL_DIR = '/app/project/medic_pipeline/results'
 REMOTE_DIR = 'medic_pipeline/data'
 MODEL_FILE = 'logistic_regression_model.pkl'
 METRICS_FILE = 'metrics.json'
